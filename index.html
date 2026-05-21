@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AceCard. Two products, one company.</title>
+<meta name="description" content="One card. Two boxes. A light box for individuals. A heavy box for sales teams." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700,400i,500i,600i,700i&f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sb-white:#FFFFFF;
+    --sb-off-white:#F7F9FC;
+    --sb-nb:#0D0D0D;
+    --sb-dark:#1A1A1A;
+    --sb-mg:#6B7280;
+    --sb-lg:#B0B8C4;
+    --sb-bd:#E2E8F0;
+    --sb-i50:#EFF6FF;
+    --sb-i100:#DBEAFE;
+    --sb-i200:#BFDBFE;
+    --sb-i300:#93C5FD;
+    --sb-i400:#60A5FA;
+    --sb-i500:#3B82F6;
+    --sb-i600:#2563EB;
+    --sb-i700:#1D4ED8;
+
+    --sb-fd:'Clash Display','Satoshi',-apple-system,BlinkMacSystemFont,sans-serif;
+    --sb-fb:'Satoshi','Clash Display',-apple-system,BlinkMacSystemFont,sans-serif;
+    --sb-fm:'JetBrains Mono', ui-monospace, monospace;
+
+    --max-w:1200px;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(900px 520px at 12% 8%,  rgba(96,165,250,.08) 0%, transparent 65%),
+      radial-gradient(1100px 620px at 90% 22%, rgba(147,197,253,.14) 0%, transparent 65%),
+      linear-gradient(180deg, #FFFFFF 0%, #EFF6FF 38%, #DBEAFE 60%, #EFF6FF 82%, #FFFFFF 100%);
+    background-attachment:fixed;
+    color:var(--sb-dark);
+    font-family:var(--sb-fb);
+    font-weight:400; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none}
+  ::selection{background:var(--sb-i100); color:var(--sb-i900)}
+  img{display:block; max-width:100%}
+
+  /* ─── NAV ─── */
+  nav.top{
+    position:sticky; top:0; z-index:50;
+    padding:16px 40px;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(16px);
+    -webkit-backdrop-filter:saturate(180%) blur(16px);
+    border-bottom:1px solid var(--sb-bd);
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+  }
+  nav.top .brand img{ display:block; height:24px; filter:brightness(0) saturate(100%); }
+  nav.top ul{list-style:none; padding:0; margin:0; display:flex; gap:28px; font-family:var(--sb-fb); font-size:13px; color:var(--sb-mg); font-weight:500}
+  nav.top ul a:hover{color:var(--sb-dark)}
+
+  section{padding:120px 40px; position:relative}
+  section > .wrap{max-width:var(--max-w); margin:0 auto}
+
+  /* ─── HERO ─── */
+  .hero{
+    padding:160px 40px 130px;
+    position:relative; overflow:hidden;
+    background:var(--sb-nb);
+    color:#fff;
+  }
+  .hero::before{
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background:
+      radial-gradient(700px 350px at 80% 0%, rgba(59,130,246,.10) 0%, transparent 60%),
+      radial-gradient(500px 300px at 20% 80%, rgba(96,165,250,.06) 0%, transparent 60%);
+  }
+  .hero .wrap{position:relative}
+  .hero .ey{
+    font-family:var(--sb-fm);
+    font-size:11px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;
+    color:rgba(255,255,255,.4);
+    display:inline-block; margin-bottom:28px;
+  }
+  h1.hero-tag{
+    font-family:var(--sb-fd);
+    font-weight:600;
+    font-size:clamp(56px,9vw,128px);
+    letter-spacing:-.035em; line-height:1.02;
+    margin:0 0 36px;
+    color:#fff;
+  }
+  h1.hero-tag .it{
+    font-family:var(--sb-fd);
+    font-style:italic; font-weight:500; color:var(--sb-i400);
+    letter-spacing:-.025em;
+  }
+  .hero .sub{
+    font-family:var(--sb-fb);
+    font-size:clamp(16px,1.4vw,19px);
+    color:rgba(255,255,255,.55);
+    max-width:560px;
+    margin:0;
+    line-height:1.6;
+  }
+
+  /* ─── SECTION DIVIDER ─── */
+  .edge{
+    max-width:var(--max-w); margin:0 auto;
+    display:flex; align-items:center; gap:18px;
+    color:var(--sb-lg); font-family:var(--sb-fm);
+    font-size:11px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;
+    padding:0 40px;
+  }
+  .edge::before, .edge::after{
+    content:''; flex:1; height:1px;
+    background:linear-gradient(to right, transparent, var(--sb-bd), transparent);
+  }
+
+  section.tint{
+    background:linear-gradient(180deg, rgba(239,246,255,.85) 0%, rgba(219,234,254,.55) 100%);
+  }
+
+  /* Display heading shared */
+  .display{
+    font-family:var(--sb-fd);
+    font-weight:600;
+    font-size:clamp(40px,5.6vw,72px);
+    letter-spacing:-.025em;
+    line-height:1.08;
+    color:var(--sb-dark);
+    margin:0 0 16px;
+  }
+  .display .it{
+    font-family:var(--sb-fd); font-style:italic; font-weight:500; color:var(--sb-i600);
+  }
+  .lead{
+    font-family:var(--sb-fb);
+    font-size:clamp(15px,1.3vw,17px);
+    color:var(--sb-mg);
+    max-width:680px;
+    line-height:1.65;
+    margin:0;
+  }
+
+  /* ═════════════════════════════════════════════════════════════
+     THE BIFURCATION — two clean boxes, same internal grid
+     ═════════════════════════════════════════════════════════════ */
+  .bif{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    align-items:start;
+  }
+  .box{
+    background:var(--sb-white);
+    border:1px solid var(--sb-bd);
+    border-radius:20px;
+    padding:36px;
+  }
+  .box.dark{
+    background:var(--sb-nb);
+    border-color:var(--sb-nb);
+    color:#fff;
+  }
+  .box-tag{
+    font-family:var(--sb-fm);
+    font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--sb-mg);
+    margin:0 0 18px;
+  }
+  .box.dark .box-tag{ color:var(--sb-i300); }
+
+  .box-name{
+    font-family:var(--sb-fd);
+    font-weight:600;
+    font-size:40px;
+    letter-spacing:-.025em; line-height:1.1;
+    margin:0 0 28px;
+    color:var(--sb-dark);
+  }
+  .box-name .it{
+    font-family:var(--sb-fd); font-style:italic; font-weight:500;
+    color:var(--sb-i600);
+  }
+  .box.dark .box-name{ color:#fff; }
+  .box.dark .box-name .it{ color:var(--sb-i400); }
+
+  /* Inner section header inside the box — e.g. "Two pieces" */
+  .box-rule{
+    display:flex; align-items:center; gap:14px;
+    font-family:var(--sb-fm);
+    font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--sb-mg);
+    margin:0 0 16px;
+  }
+  .box-rule::after{
+    content:''; flex:1; height:1px; background:var(--sb-bd);
+  }
+  .box.dark .box-rule{ color:rgba(255,255,255,.5); }
+  .box.dark .box-rule::after{ background:rgba(255,255,255,.12); }
+
+  /* Item list — CSS Grid so every chip aligns identically.
+     Two columns: 22px number, 1fr name + description. */
+  .items{
+    display:flex; flex-direction:column; gap:10px;
+    margin:0 0 24px;
+  }
+  .item{
+    display:grid;
+    grid-template-columns:22px 1fr;
+    gap:18px;
+    align-items:start;
+    padding:14px 18px;
+    background:var(--sb-off-white);
+    border:1px solid var(--sb-bd);
+    border-radius:12px;
+  }
+  .box.dark .item{
+    background:rgba(255,255,255,.04);
+    border-color:rgba(255,255,255,.10);
+  }
+  .item .n{
+    font-family:var(--sb-fm);
+    font-size:11px; font-weight:500; letter-spacing:.04em;
+    color:var(--sb-lg);
+    line-height:1.5;
+    text-align:right;
+  }
+  .box.dark .item .n{ color:rgba(255,255,255,.4); }
+  .item .t{
+    font-family:var(--sb-fb);
+    font-size:15px; font-weight:600;
+    color:var(--sb-dark);
+    line-height:1.5;
+    letter-spacing:-.005em;
+    margin:0 0 2px;
+  }
+  .box.dark .item .t{ color:#fff; }
+  .item .d{
+    font-family:var(--sb-fb);
+    font-size:13px;
+    color:var(--sb-mg);
+    line-height:1.5;
+    margin:0;
+  }
+  .box.dark .item .d{ color:rgba(255,255,255,.55); }
+
+  /* Highlighted "shared" items inside the dark box */
+  .box.dark .item.shared{
+    background:rgba(96,165,250,.10);
+    border-color:rgba(96,165,250,.28);
+  }
+  .box.dark .item.shared .n{ color:var(--sb-i300); }
+
+  /* Footer line inside the box */
+  .box-foot{
+    padding-top:20px;
+    border-top:1px solid var(--sb-bd);
+    font-family:var(--sb-fb);
+    font-size:14px; color:var(--sb-mg); line-height:1.55;
+  }
+  .box.dark .box-foot{
+    border-top-color:rgba(255,255,255,.10);
+    color:rgba(255,255,255,.55);
+  }
+  .box-foot b{ color:var(--sb-dark); font-weight:700 }
+  .box.dark .box-foot b{ color:#fff }
+
+  /* ═════════════════════════════════════════════════════════════
+     ZOOM SECTIONS — single-column, predictable vertical rhythm
+     ═════════════════════════════════════════════════════════════ */
+  .zoom-head{
+    margin-bottom:48px;
+  }
+  .zoom-head .tag{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--sb-fm);
+    font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--sb-mg); margin-bottom:24px;
+  }
+  .zoom-head .tag .dot{
+    display:inline-block; width:7px; height:7px; border-radius:50%;
+    background:var(--sb-i500); box-shadow:0 0 8px rgba(59,130,246,.5);
+  }
+  .zoom-head h2{
+    font-family:var(--sb-fd);
+    font-weight:600;
+    font-size:clamp(36px,4.6vw,60px);
+    letter-spacing:-.025em; line-height:1.08;
+    margin:0 0 20px;
+    color:var(--sb-dark);
+  }
+  .zoom-head h2 .it{
+    font-family:var(--sb-fd); font-style:italic; font-weight:500; color:var(--sb-i600);
+  }
+  .zoom-head p{
+    font-family:var(--sb-fb);
+    font-size:17px; line-height:1.6;
+    color:var(--sb-mg);
+    max-width:640px;
+    margin:0;
+  }
+  .zoom-head p b{ color:var(--sb-dark); font-weight:700 }
+
+  /* Photo treatment in dark frame */
+  .photo-frame{
+    background:var(--sb-nb);
+    border-radius:20px;
+    overflow:hidden;
+    padding:28px;
+  }
+  .photo-frame img{
+    width:100%; height:auto; display:block;
+    border-radius:10px;
+    margin:0 auto;
+    max-width:720px;
+  }
+  .photo-frame .cap{
+    margin-top:22px; text-align:center;
+    font-family:var(--sb-fm);
+    font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+    color:rgba(255,255,255,.45);
+  }
+  .photo-frame .cap b{ color:var(--sb-i300); font-weight:500 }
+
+  /* Spec list — labeled key/value rows, perfectly aligned columns */
+  .spec{
+    margin-top:40px;
+    background:var(--sb-white);
+    border:1px solid var(--sb-bd);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .spec-row{
+    display:grid;
+    grid-template-columns:160px 1fr;
+    gap:24px;
+    padding:18px 28px;
+    border-top:1px solid var(--sb-bd);
+  }
+  .spec-row:first-child{ border-top:none; }
+  .spec-row .k{
+    font-family:var(--sb-fm);
+    font-size:11px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--sb-i600);
+    padding-top:3px;
+  }
+  .spec-row .v{
+    font-family:var(--sb-fb);
+    font-size:15px; font-weight:500;
+    color:var(--sb-dark);
+    line-height:1.55;
+  }
+  .spec-row .v b{ color:var(--sb-dark); font-weight:700 }
+
+  /* Platform piece grid — used in zoom 02 */
+  .pieces{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .piece{
+    background:var(--sb-white);
+    border:1px solid var(--sb-bd);
+    border-radius:14px;
+    padding:22px 24px;
+  }
+  .piece .pn{
+    font-family:var(--sb-fm);
+    font-size:10px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--sb-i600); margin-bottom:10px;
+  }
+  .piece .pt{
+    font-family:var(--sb-fd);
+    font-weight:600;
+    font-size:19px; letter-spacing:-.015em; line-height:1.2;
+    color:var(--sb-dark); margin:0 0 8px;
+  }
+  .piece .pd{
+    font-family:var(--sb-fb);
+    font-size:13.5px; line-height:1.5;
+    color:var(--sb-mg);
+    margin:0;
+  }
+
+  /* Dashboard screenshot */
+  .shot{
+    margin-top:40px;
+    background:var(--sb-white);
+    border:1px solid var(--sb-bd);
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .shot-head{
+    padding:12px 18px; border-bottom:1px solid var(--sb-bd);
+    display:flex; align-items:center; gap:10px;
+    background:var(--sb-off-white);
+  }
+  .shot-head .dots{ display:flex; gap:5px }
+  .shot-head .dots span{ width:8px; height:8px; border-radius:50%; background:var(--sb-bd) }
+  .shot-head .u{ font-family:var(--sb-fm); font-size:10.5px; color:var(--sb-mg) }
+  .shot img{ width:100%; height:auto; display:block }
+
+  /* CRM strip */
+  .crm-row{
+    margin-top:24px;
+    display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+  }
+  .crm-row .lbl{
+    font-family:var(--sb-fm);
+    font-size:10px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--sb-lg); margin-right:6px;
+  }
+  .crm-chip{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:8px 14px;
+    background:var(--sb-white); border:1px solid var(--sb-bd); border-radius:999px;
+    font-family:var(--sb-fb); font-size:13px; font-weight:600; color:var(--sb-dark);
+  }
+  .crm-chip img{ width:16px; height:16px; filter:brightness(0) saturate(100%) }
+
+  /* ─── CLOSING ─── */
+  footer.closing{
+    padding:140px 40px 120px;
+    background:linear-gradient(180deg, rgba(239,246,255,.5) 0%, rgba(219,234,254,.7) 100%);
+  }
+  footer.closing .wrap{ max-width:1080px; margin:0 auto; }
+  .closing-line{
+    font-family:var(--sb-fd);
+    font-weight:600;
+    font-size:clamp(32px, 5vw, 60px);
+    line-height:1.12;
+    letter-spacing:-.025em;
+    color:var(--sb-dark);
+    margin:0 0 24px;
+  }
+  .closing-line:last-of-type{ margin-bottom:0; }
+  .closing-line .it{
+    font-family:var(--sb-fd); font-style:italic; font-weight:500; color:var(--sb-i600);
+  }
+  .closing-contact{
+    margin-top:56px;
+    font-family:var(--sb-fm);
+    font-size:11px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--sb-mg);
+  }
+  .closing-contact a{ color:var(--sb-mg); }
+  .closing-contact a:hover{ color:var(--sb-i600); }
+
+  .baseline{
+    text-align:center; padding:30px 0 60px; color:var(--sb-lg);
+    font-family:var(--sb-fm); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  }
+  .baseline span{color:var(--sb-i600)}
+
+  /* ─── Responsive ─── */
+  @media (max-width: 980px){
+    .bif{ grid-template-columns:1fr; gap:18px }
+    .pieces{ grid-template-columns:1fr 1fr }
+    .spec-row{ grid-template-columns:120px 1fr; gap:16px }
+  }
+  @media (max-width: 720px){
+    nav.top{padding:12px 20px}
+    nav.top ul{display:none}
+    section{padding:80px 20px}
+    .hero{padding:96px 20px 64px}
+    h1.hero-tag{font-size:clamp(44px,12vw,72px)}
+    .box{ padding:28px 24px }
+    .box-name{ font-size:32px }
+    .pieces{ grid-template-columns:1fr }
+    .photo-frame{ padding:18px }
+    .spec-row{ grid-template-columns:1fr; gap:6px; padding:16px 20px }
+    .spec-row .k{ padding-top:0 }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────── NAV ─────────── -->
+<nav class="top">
+  <div class="brand"><img src="photos/acecard_logo_white.png" alt="Acecard" /></div>
+  <ul>
+    <li><a href="#bif">The split</a></li>
+    <li><a href="#card">The card</a></li>
+    <li><a href="#platform">The platform</a></li>
+  </ul>
+</nav>
+
+<!-- ─────────── HERO ─────────── -->
+<section class="hero">
+  <div class="wrap">
+    <span class="ey">AceCard / two products</span>
+    <h1 class="hero-tag">One card.<br/><span class="it">Two boxes.</span></h1>
+    <p class="sub">A light box you can buy for yourself. A heavy box you buy for your sales team.</p>
+  </div>
+</section>
+
+<div class="edge">The bifurcation</div>
+
+<!-- ─────────── THE BIFURCATION ─────────── -->
+<section id="bif">
+  <div class="wrap">
+    <h2 class="display">Pick the <span class="it">box.</span></h2>
+    <p class="lead">Both boxes have the AceCard inside. What changes is the software wrapped around it.</p>
+
+    <div class="bif">
+
+      <!-- ── D2C BOX ── -->
+      <div class="box d2c">
+        <div class="box-tag">Box 01 &nbsp;/&nbsp; D2C</div>
+        <h3 class="box-name">The <span class="it">Card.</span></h3>
+
+        <div class="box-rule">Two pieces inside</div>
+        <div class="items">
+          <div class="item">
+            <span class="n">01</span>
+            <div>
+              <p class="t">The NFC card</p>
+              <p class="d">Matte black, no logo. Hold it to any phone.</p>
+            </div>
+          </div>
+          <div class="item">
+            <span class="n">02</span>
+            <div>
+              <p class="t">The live profile</p>
+              <p class="d">A real page that opens on tap. Photo, video, links, a button.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-foot">
+          For one person who is done handing out paper. <b>Tap, the page opens, done.</b>
+        </div>
+      </div>
+
+      <!-- ── B2B BOX ── -->
+      <div class="box dark b2b">
+        <div class="box-tag">Box 02 &nbsp;/&nbsp; B2B SaaS</div>
+        <h3 class="box-name">The <span class="it">Platform.</span></h3>
+
+        <div class="box-rule">Six pieces inside</div>
+        <div class="items">
+          <div class="item shared">
+            <span class="n">01</span>
+            <div>
+              <p class="t">The NFC card</p>
+              <p class="d">Same card. Locked to your brand across every rep.</p>
+            </div>
+          </div>
+          <div class="item shared">
+            <span class="n">02</span>
+            <div>
+              <p class="t">The live profile</p>
+              <p class="d">Same profile. Managed centrally. Revoke when a rep leaves.</p>
+            </div>
+          </div>
+          <div class="item">
+            <span class="n">03</span>
+            <div>
+              <p class="t">Voice-to-CRM</p>
+              <p class="d">Rep talks for a minute after the meeting. A clean lead writes itself.</p>
+            </div>
+          </div>
+          <div class="item">
+            <span class="n">04</span>
+            <div>
+              <p class="t">The rep mobile app</p>
+              <p class="d">Every past meeting with every customer, in one timeline.</p>
+            </div>
+          </div>
+          <div class="item">
+            <span class="n">05</span>
+            <div>
+              <p class="t">The admin dashboard</p>
+              <p class="d">Pipeline, taps, leads, top reps. Every number is real activity.</p>
+            </div>
+          </div>
+          <div class="item">
+            <span class="n">06</span>
+            <div>
+              <p class="t">CRM integrations</p>
+              <p class="d">Leads land in Salesforce, HubSpot, Zoho or Odoo with the right fields.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-foot">
+          For a sales team that wants the field to feed the CRM on its own. <b>The card is just the front door.</b>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="edge">Zoom 01 &middot; The card</div>
+
+<!-- ─────────── ZOOM: THE CARD ─────────── -->
+<section id="card" class="tint">
+  <div class="wrap">
+    <div class="zoom-head">
+      <div class="tag"><span class="dot"></span>Product 01 &middot; D2C</div>
+      <h2>The card. The page <span class="it">it opens.</span></h2>
+      <p>Hold the card to a phone. The profile loads in a second. <b>No app to download. No QR to scan. No email to type.</b></p>
+    </div>
+
+    <div class="photo-frame">
+      <img src="photos/acecard_tap_vedish.png" alt="An AceCard touching an iPhone. The phone shows a live AceCard profile with portrait, bio, social tiles and a featured video." loading="lazy" />
+      <div class="cap">Card meets phone &middot; <b>profile is already there</b></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <div class="k">Pieces</div>
+        <div class="v">The NFC card &nbsp;+&nbsp; the live profile</div>
+      </div>
+      <div class="spec-row">
+        <div class="k">Tap</div>
+        <div class="v">iPhone front camera &middot; Android back camera</div>
+      </div>
+      <div class="spec-row">
+        <div class="k">For</div>
+        <div class="v">Founders, executives, consultants buying for themselves</div>
+      </div>
+      <div class="spec-row">
+        <div class="k">Setup</div>
+        <div class="v">Buy the card &middot; build the profile &middot; tap to share</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="edge">Zoom 02 &middot; The platform</div>
+
+<!-- ─────────── ZOOM: THE PLATFORM ─────────── -->
+<section id="platform">
+  <div class="wrap">
+    <div class="zoom-head">
+      <div class="tag"><span class="dot"></span>Product 02 &middot; B2B SaaS</div>
+      <h2>Same card. Plus <span class="it">what closes the deal.</span></h2>
+      <p>The rep taps the card. The customer's phone opens the profile. The rep talks for one minute. <b>The lead writes itself and lands in your CRM.</b></p>
+    </div>
+
+    <div class="shot">
+      <div class="shot-head">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div class="u">app.theacecard.co / dashboard</div>
+      </div>
+      <img src="screenshots/01_dashboard.png" alt="The AceCard admin dashboard showing pipeline, taps, leads and top performers." loading="lazy" />
+    </div>
+
+    <div class="pieces">
+      <div class="piece">
+        <div class="pn">Piece 03</div>
+        <div class="pt">Voice-to-CRM</div>
+        <p class="pd">One minute of talking after the meeting becomes a clean lead in your CRM.</p>
+      </div>
+      <div class="piece">
+        <div class="pn">Piece 04</div>
+        <div class="pt">The rep mobile app</div>
+        <p class="pd">Every past meeting with every customer, in the rep's pocket.</p>
+      </div>
+      <div class="piece">
+        <div class="pn">Piece 05</div>
+        <div class="pt">The admin dashboard</div>
+        <p class="pd">Pipeline, taps, top reps. Every number from real card activity.</p>
+      </div>
+      <div class="piece">
+        <div class="pn">Piece 06</div>
+        <div class="pt">CRM integrations</div>
+        <p class="pd">Native sync with Salesforce, HubSpot, Zoho and Odoo.</p>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <div class="k">Pieces</div>
+        <div class="v">Card &middot; Profile &middot; Voice-to-CRM &middot; App &middot; Dashboard &middot; CRM sync</div>
+      </div>
+      <div class="spec-row">
+        <div class="k">For</div>
+        <div class="v">Sales teams of 10 to 1,000+ reps</div>
+      </div>
+      <div class="spec-row">
+        <div class="k">Lands in</div>
+        <div class="v">Salesforce &middot; HubSpot &middot; Zoho &middot; Odoo</div>
+      </div>
+      <div class="spec-row">
+        <div class="k">Licensing</div>
+        <div class="v">Annual per-seat. Add and remove seats anytime.</div>
+      </div>
+    </div>
+
+    <div class="crm-row">
+      <span class="lbl">Lands in</span>
+      <span class="crm-chip"><img src="photos/crm/salesforce.svg" alt="" />Salesforce</span>
+      <span class="crm-chip"><img src="photos/crm/hubspot.svg" alt="" />HubSpot</span>
+      <span class="crm-chip"><img src="photos/crm/zoho.svg" alt="" />Zoho</span>
+      <span class="crm-chip"><img src="photos/crm/odoo.svg" alt="" />Odoo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── CLOSING ─────────── -->
+<footer class="closing">
+  <div class="wrap">
+    <p class="closing-line">One card.</p>
+    <p class="closing-line"><span class="it">Two boxes.</span></p>
+    <p class="closing-contact">
+      <a href="tel:+919413615333">9413615333</a> &nbsp;&middot;&nbsp; <a href="mailto:info@theacecard.co?subject=AceCard%20conversation">info@theacecard.co</a>
+    </p>
+  </div>
+</footer>
+
+<div class="baseline">
+  AceCard &middot; <span>Two products</span> &middot; 2026
+</div>
+
+</body>
+</html>
